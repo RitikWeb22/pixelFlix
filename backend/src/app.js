@@ -8,10 +8,11 @@ const historyRouter = require('./routes/history.routes');
 const AdminRouter = require('./routes/admin.routes');
 const movieCreateRouter = require('./routes/adminMovie.routes');
 const app = express();
+app.use(express.static('public'))
 
 // middlewares
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: 'http://localhost:5173',
     credentials: true
 }));
 app.use(express.json());

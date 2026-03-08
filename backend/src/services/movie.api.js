@@ -23,6 +23,9 @@ async function fetchTrendingMovies(req, res) {
             `${TMDB_BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`
         )
 
+        // Cache for 1 hour
+        await redis.set(trendPage, JSON.stringify(response.data.results), 'EX', 3600)
+
         res.json(response.data.results)
 
     } catch (error) {
@@ -76,8 +79,8 @@ async function getMovieDetails(req, res) {
         res.json(response.data)
 
     } catch (error) {
-
-        res.status(500).json({ message: "Failed to fetch movie details" })
+        console.error('Movie Details Error:', error.response?.data || error.message)
+        res.status(500).json({ message: "Failed to fetch movie details", error: error.message })
 
     }
 

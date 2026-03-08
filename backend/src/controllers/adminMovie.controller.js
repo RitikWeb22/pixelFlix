@@ -4,17 +4,17 @@ const movieModel = require("../models/movie.model");
 async function createMovie(req, res) {
     try {
 
-        const { title, description, releaseDate, trailer, genre, category } = req.body;
+        const { title, description, releaseDate, trailer, genre, category, poster } = req.body;
 
         const movieId = 'movie_' + Date.now()
 
         // check if movie with the same already exists
-        const existingMovie = await movieModel.findOne({ $or: [{ title }, { movieId }, { description }, { genre }, { category }] });
+        const existingMovie = await movieModel.findOne({ $or: [{ title }, { movieId }] });
         if (existingMovie) {
-            return res.status(400).json({ error: 'Movie is already exits' });
+            return res.status(400).json({ error: 'Movie already exists with this title' });
         }
 
-        const newMovie = await movieModel.create({ title, description, releaseDate, trailer, genre, category, movieId, });
+        const newMovie = await movieModel.create({ title, description, releaseDate, trailer, genre, category, poster, movieId });
         res.status(201).json({
             message: 'Movie created successfully',
             movie: newMovie
@@ -27,8 +27,8 @@ async function createMovie(req, res) {
 async function updateMovie(req, res) {
     try {
         const { id } = req.params;
-        const { title, description, releaseDate, trailer, genre, category } = req.body;
-        const updatedMovie = await movieModel.findByIdAndUpdate(id, { title, description, releaseDate, trailer, genre, category }, { new: true });
+        const { title, description, releaseDate, trailer, genre, category, poster } = req.body;
+        const updatedMovie = await movieModel.findByIdAndUpdate(id, { title, description, releaseDate, trailer, genre, category, poster }, { new: true });
         if (!updatedMovie) {
             return res.status(404).json({ error: 'Movie not found' });
         }

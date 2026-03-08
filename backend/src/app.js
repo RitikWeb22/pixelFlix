@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const authRouter = require('./routes/auth.route');
 const movieRouter = require('./routes/movie.routes');
 const favRouter = require('./routes/favorite.routes');
@@ -7,7 +8,12 @@ const historyRouter = require('./routes/history.routes');
 const AdminRouter = require('./routes/admin.routes');
 const movieCreateRouter = require('./routes/adminMovie.routes');
 const app = express();
+
 // middlewares
+app.use(cors({
+    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    credentials: true
+}));
 app.use(express.json());
 app.use(cookieParser());
 

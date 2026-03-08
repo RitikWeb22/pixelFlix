@@ -1,0 +1,171 @@
+.catalog-page {
+  min-height: 100vh;
+  padding: 1.8rem 4vw 2.5rem;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(229, 9, 20, 0.2), transparent 28%),
+    radial-gradient(
+      circle at 100% 20%,
+      rgba(255, 153, 0, 0.14),
+      transparent 28%
+    ),
+    #070707;
+  color: #f6f8fa;
+  position: relative;
+}
+
+.catalog-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.02), transparent 42%),
+    linear-gradient(180deg, transparent 56%, rgba(0, 0, 0, 0.44));
+}
+
+.catalog-header {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin-bottom: 1.5rem;
+  animation: revealUp 0.45s ease both;
+}
+
+.catalog-kicker {
+  margin: 0;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: #ff777e;
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+
+.catalog-header h1 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+}
+
+.catalog-header p {
+  margin: 0.8rem 0 0;
+  color: #b7c7ce;
+  font-size: 1rem;
+}
+
+.catalog-state {
+  position: relative;
+  z-index: 1;
+  color: #d8e2e7;
+}
+
+.catalog-state.error {
+  color: #ff8d8d;
+}
+
+.catalog-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.catalog-card {
+  border-radius: 0.7rem;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(16, 20, 26, 0.95),
+    rgba(10, 13, 18, 0.96)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  animation: revealUp 0.42s ease both;
+}
+
+.catalog-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.catalog-card:hover img {
+  transform: scale(1.04);
+}
+
+.catalog-meta {
+  padding: 0.75rem 0.8rem 0.55rem;
+}
+
+.catalog-meta h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.catalog-meta p {
+  margin: 0.35rem 0 0;
+  color: #b6b6b6;
+  font-size: 0.84rem;
+}
+
+.catalog-actions {
+  padding: 0 0.8rem 0.85rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.catalog-empty {
+  position: relative;
+  z-index: 1;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 10, 10, 0.68);
+  padding: 1.5rem;
+  max-width: 520px;
+  animation: revealUp 0.45s ease both;
+}
+
+.catalog-empty h2 {
+  margin: 0;
+}
+
+.catalog-empty p {
+  margin: 0.65rem 0 1rem;
+  color: #b6b6b6;
+}
+
+.catalog-card:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+.catalog-card:nth-child(3) {
+  animation-delay: 0.08s;
+}
+
+.catalog-card:nth-child(4) {
+  animation-delay: 0.12s;
+}
+
+.catalog-card:nth-child(5) {
+  animation-delay: 0.16s;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-page {
+    padding: 1.2rem 1rem 2rem;
+  }
+}

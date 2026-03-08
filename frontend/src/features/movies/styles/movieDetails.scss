@@ -1,0 +1,387 @@
+.details-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(229, 9, 20, 0.2), transparent 28%),
+    radial-gradient(
+      circle at 100% 20%,
+      rgba(255, 153, 0, 0.14),
+      transparent 28%
+    ),
+    #070707;
+  color: #fff;
+  padding: 0 2rem;
+}
+
+.details-loading,
+.details-error {
+  min-height: 70vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+
+  p {
+    font-size: 1.2rem;
+    color: #d3d3d3;
+  }
+}
+
+.details-hero {
+  position: relative;
+  min-height: 85vh;
+  padding: 2rem 4vw 3rem;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.details-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(7, 7, 7, 0.95) 0%,
+    rgba(7, 7, 7, 0.85) 45%,
+    rgba(7, 7, 7, 0.7) 70%,
+    transparent 100%
+  );
+}
+
+.details-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 2.5rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  animation: detailsReveal 0.5s ease both;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.details-poster {
+  flex-shrink: 0;
+
+  img {
+    width: 300px;
+    border-radius: 0.8rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
+
+.details-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+}
+
+.details-tagline {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ff777e;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.details-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+
+  span {
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.details-status {
+  background: rgba(229, 9, 20, 0.2) !important;
+  border-color: rgba(229, 9, 20, 0.5) !important;
+  color: #ff777e;
+  font-weight: 700;
+}
+
+.custom-badge {
+  background: linear-gradient(
+    135deg,
+    rgba(147, 51, 234, 0.3),
+    rgba(59, 130, 246, 0.3)
+  ) !important;
+  border-color: rgba(147, 51, 234, 0.6) !important;
+  color: #c4b5fd;
+  font-weight: 700;
+}
+
+.details-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.genre-tag {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e5e5e5;
+}
+
+.details-overview {
+  margin-top: 0.5rem;
+
+  h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+
+  p {
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.details-category {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid rgba(147, 51, 234, 0.6);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+
+  strong {
+    color: #c4b5fd;
+    margin-right: 0.5rem;
+  }
+}
+
+.details-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.details-btn-play {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+  font-weight: 700;
+
+  &:hover {
+    background: #e8e8e8;
+  }
+}
+
+.details-btn-secondary {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.24);
+  }
+}
+
+.details-extra {
+  padding: 3rem 4vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.details-block {
+  padding: 1rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.55);
+
+  h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+    color: #ff777e;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    color: #d3d3d3;
+    line-height: 1.6;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: 0.3rem 0;
+      color: #d3d3d3;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.details-videos {
+  h3 {
+    margin: 0 0 1.2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.video-card {
+  border-radius: 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 10, 10, 0.58);
+  padding: 0.6rem;
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.6rem;
+    background: #000;
+  }
+
+  p {
+    margin: 0.6rem 0 0;
+    font-size: 0.95rem;
+    color: #d3d3d3;
+  }
+}
+
+@keyframes detailsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Trailer Modal */
+.trailer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.trailer-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  animation: scaleIn 0.3s ease;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+.trailer-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10000;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    color: #e50914;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .trailer-modal {
+    padding: 1rem;
+  }
+
+  .trailer-close {
+    top: -2.5rem;
+    font-size: 1.5rem;
+  }
+}

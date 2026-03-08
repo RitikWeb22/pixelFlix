@@ -6,7 +6,7 @@ async function addHistory(req, res) {
     const userId = req.user.id;
     const { movieId } = req.params;
     try {
-        const history = await historyModel.findByIdAndUpdate(
+        const history = await historyModel.findOneAndUpdate(
             { user: userId, movieId },
             { watchedAt: new Date() },
             { new: true, upsert: true }

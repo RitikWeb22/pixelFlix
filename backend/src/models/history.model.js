@@ -9,7 +9,7 @@ const historySchema = new mongoose.Schema({
     },
 
     movieId: {
-        type: Number,
+        type: mongoose.Schema.Types.Mixed,
         required: true
     },
 
